@@ -21,6 +21,6 @@ jobs:
           run_install: false
       - name: Build official Fuwari with KorClassIC content
         env:
-          SITE_URL: https://pma10.github.io
-          BASE_PATH: /KorClassIC
+          SITE_URL: https://korclassic.pma.kr
+          BASE_PATH: /
         run: bash scripts/materialize-fuwari.sh
