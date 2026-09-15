@@ -33,8 +33,8 @@ jobs:
           enablement: true
       - name: Build official Fuwari with KorClassIC content
         env:
-          SITE_URL: ${{ steps.pages.outputs.origin }}
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          SITE_URL: https://korclassic.pma.kr
+          BASE_PATH: /
         run: bash scripts/materialize-fuwari.sh
       - uses: actions/upload-pages-artifact@v4
         with:
