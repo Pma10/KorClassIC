@@ -1,0 +1,29 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<header class="site-header">
+  <div class="container nav glass">
+    <a class="brand" href={base} aria-label="KorClassIC 홈">
+      <span class="seal">古</span>
+      <span><strong>KorClassIC</strong><small>열린 한국 고전 번역</small></span>
+    </a>
+    <nav aria-label="주요 메뉴">
+      <a href={`${base}works/`}>고전</a>
+      <a href={`${base}about/`}>프로젝트</a>
+      <a href="https://github.com/Pma10/KorClassIC" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+<style>
+  .site-header { position: sticky; top: 14px; z-index: 20; padding-top: 14px; }
+  .nav { border-radius: 20px; padding: 11px 14px 11px 12px; display: flex; justify-content: space-between; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand span:last-child { display: grid; line-height: 1.15; }
+  .brand strong { font-size: .98rem; }
+  .brand small { margin-top: 3px; color: var(--muted); font-size: .68rem; }
+  .seal { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; background: var(--accent); color: var(--bg); font-family: serif; font-weight: 800; }
+  nav { display: flex; gap: 4px; }
+  nav a { padding: 9px 11px; border-radius: 12px; color: var(--muted); font-size: .88rem; font-weight: 700; }
+  nav a:hover { background: var(--accent-soft); color: var(--accent); }
+  @media (max-width: 620px) { .brand small { display: none; } nav a { padding: 8px; font-size: .8rem; } }
+</style>

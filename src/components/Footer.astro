@@ -1,0 +1,15 @@
+---
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="container footer-inner">
+    <p><strong>KorClassIC</strong> · 한국 고전을 더 쉽게 읽을 수 있도록.</p>
+    <p class="muted">© {year} KorClassIC · Code is open source. Content licenses are tracked per work.</p>
+  </div>
+</footer>
+<style>
+  footer { padding: 56px 0 34px; }
+  .footer-inner { border-top: 1px solid var(--line); padding-top: 22px; display: flex; justify-content: space-between; gap: 20px; font-size: .82rem; }
+  .footer-inner p { margin: 0; }
+  @media (max-width: 700px) { .footer-inner { flex-direction: column; } }
+</style>
