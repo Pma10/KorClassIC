@@ -21,6 +21,7 @@ mkdir -p "$SITE_DIR/src/content/posts" "$SITE_DIR/src/content/spec"
 cp -R "$ROOT_DIR/fuwari-overrides/posts/." "$SITE_DIR/src/content/posts/"
 cp "$ROOT_DIR/fuwari-overrides/config.ts" "$SITE_DIR/src/config.ts"
 cp "$ROOT_DIR/fuwari-overrides/about.md" "$SITE_DIR/src/content/spec/about.md"
+cp "$ROOT_DIR/fuwari-overrides/Profile.astro" "$SITE_DIR/src/components/widget/Profile.astro"
 
 SITE_URL="$SITE_URL" BASE_PATH="$BASE_PATH" SITE_DIR="$SITE_DIR" node <<'NODE'
 const fs = require('node:fs');
