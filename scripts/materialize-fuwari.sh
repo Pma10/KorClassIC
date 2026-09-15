@@ -3,8 +3,8 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FUWARI_REF="${FUWARI_REF:-6d39b0dec41282e7852e23e032998a5789abee28}"
-SITE_URL="${SITE_URL:-https://pma10.github.io}"
-BASE_PATH="${BASE_PATH:-/KorClassIC}"
+SITE_URL="${SITE_URL:-https://korclassic.pma.kr}"
+BASE_PATH="${BASE_PATH:-/}"
 BUILD_ROOT="$ROOT_DIR/.build"
 SITE_DIR="$BUILD_ROOT/fuwari"
 
@@ -39,4 +39,4 @@ pnpm --dir "$SITE_DIR" install --frozen-lockfile
 pnpm --dir "$SITE_DIR" build
 cp -R "$SITE_DIR/dist" "$ROOT_DIR/dist"
 
-printf 'Built KorClassIC with Fuwari %s\n' "$FUWARI_REF"
+printf 'Built KorClassIC with Fuwari %s for %s%s\n' "$FUWARI_REF" "$SITE_URL" "$BASE_PATH"
