@@ -29,12 +29,6 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Use GitHub Actions as Pages source
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          printf '%s\n' '{"build_type":"workflow","cname":null}' > pages.json
-          gh api --method PUT "repos/${GITHUB_REPOSITORY}/pages" --input pages.json
       - name: Build
         env:
           SITE_URL: ${{ steps.pages.outputs.origin }}
