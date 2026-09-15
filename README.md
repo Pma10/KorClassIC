@@ -1,44 +1,42 @@
 # KorClassIC
 
-한국 고전을 AI와 사람의 검토로 현대 한국어에 연결하는 오픈 번역 아카이브입니다.
+한국 고전을 원문 출처·이용조건과 함께 정리하고, AI 보조 번역과 사람 검토를 거쳐 공개하는 프로젝트입니다.
 
-- **Frontend:** Astro
-- **Design direction:** Fuwari-inspired soft glass / card UI
-- **Hosting:** GitHub Pages
-- **Content:** Markdown + Astro Content Collections
+## 사이트
 
-## 개발
+GitHub Pages: `https://pma10.github.io/KorClassIC/`
+
+## 디자인
+
+사이트 테마는 **Fuwari upstream을 그대로 사용**합니다. KorClassIC에서 별도 디자인을 재구현하지 않습니다.
+
+- Upstream: `saicaca/fuwari`
+- Pinned commit: `6d39b0dec41282e7852e23e032998a5789abee28`
+- License: MIT
+
+빌드할 때 공식 Fuwari 소스를 해당 커밋으로 가져온 뒤 아래 파일만 덮어씁니다.
+
+- `fuwari-overrides/config.ts`: 사이트 이름·언어·링크
+- `fuwari-overrides/about.md`: 프로젝트 소개
+- `fuwari-overrides/posts/`: 고전 콘텐츠
+
+따라서 Fuwari의 레이아웃, 카드, 네비게이션, 애니메이션, 검색, 다크 모드 등 디자인/동작 코드는 upstream 그대로입니다.
+
+## 로컬 빌드
+
+Node.js 22, pnpm 9.14.4, Git이 필요합니다.
 
 ```bash
-npm install
-npm run dev
+pnpm --version
+bash scripts/materialize-fuwari.sh
 ```
 
-프로덕션 빌드:
+생성 결과는 `dist/`에 저장됩니다.
 
-```bash
-npm run build
-```
+## 초기 후보
 
-## 콘텐츠 추가
+- 세자행적 (世子行蹟)
+- 농산집 (農山集)
+- 동현주의 (東賢奏議)
 
-`src/content/works/*.md`에 작품을 추가합니다. 각 작품은 최소한 작품명, 시대, 분류, 번역 상태, 진행률, 요약, 마지막 갱신일을 기록합니다.
-
-번역 상태는 다음 네 단계로 관리합니다.
-
-- `planned` — 출처/이용조건/기존 번역 조사
-- `translating` — AI 초벌 번역 진행
-- `reviewing` — 원문 대조 및 사람 검토
-- `published` — 1차 검토 완료 공개본
-
-## GitHub Pages
-
-`main` 브랜치에 반영되면 `.github/workflows/deploy.yml`이 사이트를 빌드하고 GitHub Pages에 배포하도록 구성되어 있습니다.
-
-예상 주소: `https://pma10.github.io/KorClassIC/`
-
-## 라이선스
-
-사이트 코드의 라이선스와 고전 원문/번역 콘텐츠의 이용조건은 분리해서 관리합니다. **각 원문 데이터는 해당 출처의 이용조건을 개별 확인한 뒤 포함합니다.**
-
-디자인 방향은 [Fuwari](https://github.com/saicaca/fuwari)에서 영감을 받았습니다. Fuwari는 MIT License로 배포됩니다.
+현재는 번역 착수 전 후보 자료이며, 원문 출처·판본·재배포 조건과 기존 번역 존재 여부를 먼저 확인합니다.

@@ -1,14 +1,13 @@
 ---
-title: 농산집
-hanjaTitle: 農山集
-author: 신득구
-period: 조선 후기
-category: 문집
-status: planned
-progress: 0
-summary: 신득구의 문집. 공개 원문과 기존 번역 여부를 교차 확인한 뒤 번역 후보로 진행합니다.
-updatedAt: 2026-09-15
+title: "농산집 (農山集)"
+published: 2026-09-15
+description: "신득구의 문집. 공개 원문과 기존 번역 여부를 교차 확인한 뒤 번역 후보로 진행합니다."
+image: ""
+tags: [조선후기, 문집, 신득구, 번역예정]
+category: "한국 고전"
+lang: "ko"
 ---
+
 ## 후보 자료
 
 KorClassIC의 장기 번역 후보입니다. 실제 번역 착수 전 다음 항목을 먼저 확인합니다.

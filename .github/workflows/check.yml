@@ -1,10 +1,8 @@
-name: Check site
+name: Check Fuwari site
 
 on:
   pull_request:
-  push:
-    branches:
-      - feat/astro-fuwari-archive
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -17,7 +15,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install dependencies
-        run: npm install
-      - name: Check and build
-        run: npm run build
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.14.4
+          run_install: false
+      - name: Build official Fuwari with KorClassIC content
+        env:
+          SITE_URL: https://pma10.github.io
+          BASE_PATH: /KorClassIC
+        run: bash scripts/materialize-fuwari.sh
