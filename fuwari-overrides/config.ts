@@ -46,7 +46,6 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/demo-avatar.png",
 	name: "KorClassIC",
 	bio: "AI와 사람의 검토로 이어가는 열린 한국 고전 번역 아카이브",
 	links: [
