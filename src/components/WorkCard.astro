@@ -1,7 +1,14 @@
 ---
 const { work } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const label = { planned: '번역 예정', translating: '번역 중', reviewing: '검토 중', published: '공개 완료' }[work.data.status];
+const labels = {
+  planned: '번역 예정',
+  translating: '번역 중',
+  reviewing: '검토 중',
+  published: '공개 완료'
+} as const;
+const status = work.data.status as keyof typeof labels;
+const label = labels[status];
 ---
 <a class="work-card glass" href={`${base}works/${work.id}/`} data-work-card data-search={`${work.data.title} ${work.data.hanjaTitle ?? ''} ${work.data.author ?? ''} ${work.data.period} ${work.data.category}`.toLowerCase()}>
   <div class="topline">
