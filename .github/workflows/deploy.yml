@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy KorClassIC
 
 on:
   push:
@@ -22,18 +22,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install dependencies
-        run: npm install
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.14.4
+          run_install: false
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Build
+      - name: Build official Fuwari with KorClassIC content
         env:
           SITE_URL: ${{ steps.pages.outputs.origin }}
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
-        run: npm run build
+        run: bash scripts/materialize-fuwari.sh
       - uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
