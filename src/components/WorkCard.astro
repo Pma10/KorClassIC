@@ -1,0 +1,33 @@
+---
+const { work } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const label = { planned: '번역 예정', translating: '번역 중', reviewing: '검토 중', published: '공개 완료' }[work.data.status];
+---
+<a class="work-card glass" href={`${base}works/${work.id}/`} data-work-card data-search={`${work.data.title} ${work.data.hanjaTitle ?? ''} ${work.data.author ?? ''} ${work.data.period} ${work.data.category}`.toLowerCase()}>
+  <div class="topline">
+    <span class="pill">{label}</span>
+    <span class="progress-number">{work.data.progress}%</span>
+  </div>
+  <div>
+    {work.data.hanjaTitle && <div class="hanja">{work.data.hanjaTitle}</div>}
+    <h3>{work.data.title}</h3>
+    <p>{work.data.summary}</p>
+  </div>
+  <div>
+    <div class="progress"><span style={`width:${work.data.progress}%`}></span></div>
+    <div class="meta"><span>{work.data.period}</span><span>·</span><span>{work.data.category}</span>{work.data.author && <><span>·</span><span>{work.data.author}</span></>}</div>
+  </div>
+</a>
+<style>
+  .work-card { min-height: 320px; border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; transition: transform .22s ease, border-color .22s ease; }
+  .work-card:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .work-card[hidden] { display: none; }
+  .topline { display: flex; justify-content: space-between; align-items: center; }
+  .progress-number { color: var(--muted); font-size: .82rem; font-weight: 800; }
+  .hanja { margin-top: 26px; color: var(--accent); font-family: "Noto Serif CJK KR", "Source Han Serif KR", serif; font-size: 1rem; letter-spacing: .12em; }
+  h3 { margin: 4px 0 10px; font-size: 1.55rem; letter-spacing: -.035em; }
+  p { margin: 0; color: var(--muted); font-size: .93rem; }
+  .progress { height: 6px; margin-bottom: 12px; overflow: hidden; border-radius: 999px; background: var(--line); }
+  .progress span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; color: var(--muted); font-size: .78rem; }
+</style>
