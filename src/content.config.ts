@@ -1,5 +1,6 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const works = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/works' }),
@@ -13,7 +14,7 @@ const works = defineCollection({
     progress: z.number().min(0).max(100),
     summary: z.string(),
     source: z.string().optional(),
-    sourceUrl: z.string().url().optional(),
+    sourceUrl: z.url().optional(),
     sourceLicense: z.string().optional(),
     updatedAt: z.coerce.date()
   })
